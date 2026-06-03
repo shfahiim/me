@@ -8,6 +8,10 @@ This note is about why the attention mechanism, and especially the 2017 Transfor
 
 Some ideas do not just improve performance. They change what a field can build next.
 
+One strong version of the claim is this: *Attention Is All You Need* may be one of the most economically important papers ever written.
+
+Not because it invented AI, but because it gave AI the architecture it needed to scale.
+
 Before Transformers, sequence modeling often relied on RNNs and LSTMs. Those systems were useful, but they processed tokens step by step, which made long-range dependencies harder and large-scale training less efficient.
 
 Attention changed that structure.
@@ -37,6 +41,16 @@ That is what changed the center of gravity of the field:
 - large models became more general and reusable
 - scaling became a core strategy, not just a side effect
 
+Language is relational.
+
+Code is relational.
+
+Images are relational.
+
+Knowledge itself is relational.
+
+Attention gave machines a scalable way to model those relationships.
+
 ## The fission analogy
 
 The comparison to Meitner and Frisch's 1939 nuclear fission paper is interesting because the similarity is structural, not moral or literal.
@@ -51,6 +65,53 @@ The analogy works best like this:
 - attention revealed structure hidden inside data
 
 In both cases, a conceptual breakthrough turned science into an engineering race.
+
+Once fission was understood, the question became how quickly that energy could be controlled, industrialized, and weaponized.
+
+Once Transformers showed clear scaling potential, the question became how far the architecture could be pushed with more data, more compute, and more parameters.
+
+That is the real similarity.
+
+Not destruction.
+
+Not morality.
+
+But the moment when science turns into an engineering race.
+
+## Economic angle
+
+Part of the reason this paper feels historically important is that it helped trigger enormous economic activity around:
+
+- chips
+- cloud infrastructure
+- AI labs
+- enterprise software
+- developer tools
+
+It is reasonable to say the Transformer shift contributed to trillions of dollars in market value across those areas.
+
+But market capitalization is not the same thing as real economic output.
+
+Valuation measures expectation, not delivered value.
+
+That distinction matters.
+
+There is already real utility in:
+
+- coding
+- writing
+- search
+- education
+- research
+- design
+- automation
+
+But there is also clearly a bubble layer around AI, where some companies are repackaging existing workflows with higher cost and uneven quality.
+
+So both statements can be true at the same time:
+
+- Transformers were a real breakthrough
+- the market around AI may still be overheated
 
 ## Limits of the claim
 
