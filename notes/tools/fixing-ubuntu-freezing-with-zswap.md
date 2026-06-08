@@ -83,3 +83,61 @@ Without zswap:
 ## Related
 
 - `hash-r-after-package-update.md` - Another system-level fix worth remembering
+
+---
+
+## From the Community (Reddit discussion)
+
+Source: [r/Ubuntu - Ubuntu 24.04 filling up RAM and when it is full the system freezing](https://www.reddit.com/r/Ubuntu/comments/1qh4k3s/ubuntu_2404_filling_up_ram_and_when_it_is_full/)
+
+The thread confirms the zswap approach above, but also surfaces other solutions and edge cases worth knowing.
+
+### zram vs zswap
+
+Don't use zram and swap together. Pick one:
+
+- **zswap + swap** (what this note covers): compressed cache layer in front of disk swap. Recommended.
+- **zram** alone: creates a compressed RAM block device as swap. No disk swap needed, but lower ceiling.
+
+Some users suggested `sudo apt install zram-tools` or `sudo apt install zram-config` as simpler alternatives, but zswap with a proper swapfile gives better control.
+
+### Alternative: early OOM killers
+
+If you don't want to deal with swap at all, install something that kills memory-hungry processes *before* the system freezes:
+
+```bash
+sudo apt install earlyoom
+sudo systemctl enable --now earlyoom
+```
+
+Other options mentioned: `nohang` (version 0.3+), `systemd-oomd`.
+
+### The real cause might be a memory leak
+
+In the original thread, the poster found that **gjs** (GNOME JavaScript runtime) was consuming 1.8GB in 10 minutes and filling all RAM and swap overnight. Uninstalling gjs fixed it entirely.
+
+If your system keeps filling memory even with no apps open, check for a leak first:
+
+```bash
+# Sort by memory usage, watch over time
+htop  # press F6, sort by MEM%
+```
+
+Common culprits:
+- **gjs**: GNOME shell extensions or bad GNOME config. Try clearing: `~/.config/gnome-shell`, `~/.local/share/gnome-shell`, `~/.cache/gjs`
+- **Browsers**: many tabs, especially with video (YouTube)
+- **Brave / Chrome**: known to balloon memory over time
+
+### Diagnosis tools mentioned
+
+```bash
+sudo apt install htop btop
+dmesg -Tw  # kernel messages, useful for OOM events
+```
+
+### Swap file vs swap partition
+
+There was debate in the thread. Short version:
+- **Swap file** (what most people use): fine on modern Linux, easy to create
+- **Swap partition**: no fragmentation risk, can be shared across distros if dual booting, slightly cleaner
+- For most single-OS setups, a swap file is perfectly sufficient
