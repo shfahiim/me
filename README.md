@@ -67,6 +67,11 @@ Use this default flow:
 
 Detailed writing guidance lives in [`WRITING_GUIDE.md`](./WRITING_GUIDE.md).
 
+## Current Notes
+
+- [`open-alias-for-xdg-open.md`](./notes/tools/open-alias-for-xdg-open.md) - Alias `open` to `xdg-open` in shell config to easily open files, folders, and URLs from the Linux terminal.
+- [`ubuntu-ir-camera-howdy-face-auth.md`](./notes/tools/ubuntu-ir-camera-howdy-face-auth.md) - Using a Windows Hello-style IR camera on Ubuntu with Howdy, including the `/dev/video2` camera path, config repair, and Ubuntu 24.04 PAM Python fix.
+
 ## Update Habit
 
 After adding or significantly updating a note:
@@ -116,4 +121,3 @@ Over time, you can:
 - add summary index files per topic
 
 The system should stay lightweight. If organization becomes heavier than writing, simplify it.
-
