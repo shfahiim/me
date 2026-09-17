@@ -81,6 +81,21 @@ open the PNG and look at it.
 9. **Deliver** `<film>.html` with `core.js`, the mp4, the contact sheet, and
    one line per scene saying what it shows.
 
+## Two Working Modes
+
+1. **Single-File Mode (Rapid Prototype / Short Form):**
+   - Single HTML file (`assets/film-template.html`) loading `core.js`.
+   - Rendered with `scripts/render.mjs`.
+   - Best for fast turnaround (15–60 s explainers, quick social formats).
+
+2. **Modular Pipeline Mode (Production / Multi-Shot):**
+   - Modular project structure powered by the sibling `procedural-film` skill (`skill/procedural-film`).
+   - Each shot is an isolated file (`src/scenes/NN-<id>.js`) registered into `src/timeline.js`.
+   - Engine split into `src/core.js` and `src/lib.js` with camera transitions and boiling grain.
+   - Strict 6-check verification gate (`node tools/check.cjs`).
+   - Playwright-based contact sheets (`tools/snap.cjs`) and bundler (`tools/build.cjs` -> `dist/<slug>.html`).
+
+
 ## Non-negotiable rules
 
 Full text and reasons in `references/style.md`.
