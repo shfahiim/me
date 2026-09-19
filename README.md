@@ -70,6 +70,7 @@ Detailed writing guidance lives in [`WRITING_GUIDE.md`](./WRITING_GUIDE.md).
 ## Current Notes
 
 - [`open-alias-for-xdg-open.md`](./notes/tools/open-alias-for-xdg-open.md) - Alias `open` to `xdg-open` in shell config to easily open files, folders, and URLs from the Linux terminal.
+- [`temporary-reverse-proxy-with-caddy-docker.md`](./notes/tools/temporary-reverse-proxy-with-caddy-docker.md) - Zero-install temporary local reverse proxy using Caddy in Docker to route localhost ports to external domains with Host header rewriting.
 - [`ubuntu-ir-camera-howdy-face-auth.md`](./notes/tools/ubuntu-ir-camera-howdy-face-auth.md) - Using a Windows Hello-style IR camera on Ubuntu with Howdy, including the `/dev/video2` camera path, config repair, and Ubuntu 24.04 PAM Python fix.
 
 ## Update Habit
